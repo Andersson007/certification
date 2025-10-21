@@ -2,7 +2,7 @@
 - name: Test the module
   register: result
   ansible.certification.sample_module:
-    name: "ansible-creator" 
+    name: "ansible-creator"
 
 - name: Assert the returned message
   ansible.builtin.assert:
