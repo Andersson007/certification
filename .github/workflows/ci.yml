@@ -1,0 +1,31 @@
+---
+# Additional tests not run by Galaxy-importer on Automation Hub
+name: "ci"
+
+concurrency:
+  group: ci-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  # Below is an example cron scheduler,
+  # tweak it as per your requirement
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  unit:
+    uses: ansible/ansible-content-actions/.github/workflows/unit.yaml@main
+  all_green:
+    if: ${{ always() }}
+    needs:
+      - unit
+    runs-on: ubuntu-latest
+    steps:
+      - run: >-
+          python -c "assert 'failure' not in
+          set([
+          '${{ needs.unit.result }}'
+          ])"

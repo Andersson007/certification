@@ -48,7 +48,7 @@ __metaclass__ = type  # pylint: disable=C0103
 from ansible.module_utils.basic import AnsibleModule  # type: ignore
 
 
-def _sample_module(name: str) -> str:
+def make_hello_message(name: str) -> str:
     """Returns Hello message.
 
     Args:
@@ -69,7 +69,7 @@ def main() -> None:
         argument_spec=argument_spec,
     )
 
-    message = _sample_module(module.params["name"])
+    message = make_hello_message(module.params["name"])
 
     result = {
         "changed": False,
