@@ -1,9 +1,10 @@
 ---
-# Ansible collection certification main workflow
-name: "Main CI"
+# Ansible collection certification main workflow.
+# Contains tests run by Galaxy-importer on Automation Hub.
+name: "cert"
 
 concurrency:
-  group: main-${{ github.head_ref || github.run_id }}
+  group: cert-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
 on:
