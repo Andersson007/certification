@@ -1,5 +1,5 @@
 ---
-# Ansible collection certification workflow
+# Ansible collection certification main workflow
 name: "CI"
 
 concurrency:
