@@ -30,6 +30,5 @@ jobs:
       - run: >-
           python -c "assert 'failure' not in
           set([
-          # '${{ needs.integration.result }}'
           '${{ needs.unit.result }}'
           ])"
