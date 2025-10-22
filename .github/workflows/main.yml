@@ -1,6 +1,6 @@
 ---
 # Ansible collection certification main workflow
-name: "CI"
+name: "Main CI"
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}

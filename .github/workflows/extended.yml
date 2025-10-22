@@ -1,6 +1,6 @@
 ---
 # Ansible collection certification extended workflow
-name: "CI"
+name: "Extended CI"
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
