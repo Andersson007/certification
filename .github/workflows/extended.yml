@@ -1,0 +1,35 @@
+---
+# Ansible collection certification extended workflow
+name: "CI"
+
+concurrency:
+  group: ${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  # Below is an example cron scheduler,
+  # tweak it as per your requirement
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  integration:
+    uses: ansible/ansible-content-actions/.github/workflows/integration.yaml@main
+  unit:
+    uses: ansible/ansible-content-actions/.github/workflows/unit.yaml@main
+  all_green:
+    if: ${{ always() }}
+    needs:
+      - integration
+      - unit
+    runs-on: ubuntu-latest
+    steps:
+      - run: >-
+          python -c "assert 'failure' not in
+          set([
+          '${{ needs.integration.result }}'
+          '${{ needs.unit.result }}'
+          ])"
