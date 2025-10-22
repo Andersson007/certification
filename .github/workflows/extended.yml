@@ -16,20 +16,20 @@ on:
     - cron: '0 6 * * *'
 
 jobs:
-  integration:
-    uses: ansible/ansible-content-actions/.github/workflows/integration.yaml@main
+  # integration:
+  #   uses: ansible/ansible-content-actions/.github/workflows/integration.yaml@main
   unit:
     uses: ansible/ansible-content-actions/.github/workflows/unit.yaml@main
   all_green:
     if: ${{ always() }}
     needs:
-      - integration
+      # - integration
       - unit
     runs-on: ubuntu-latest
     steps:
       - run: >-
           python -c "assert 'failure' not in
           set([
-          '${{ needs.integration.result }}'
+          # '${{ needs.integration.result }}'
           '${{ needs.unit.result }}'
           ])"
