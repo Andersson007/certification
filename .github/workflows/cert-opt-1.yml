@@ -83,4 +83,4 @@ jobs:
           # OPTIONAL If set to true, will test only against changed files,
           # which should improve CI performance. See limitations on
           # https://github.com/ansible-community/ansible-test-gh-action#pull-request-change-detection
-          pull-request-change-detection: false 
+          pull-request-change-detection: false
