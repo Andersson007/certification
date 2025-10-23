@@ -20,7 +20,7 @@ jobs:
   # Build the collection and run galaxy-importer on it
   # skipping ansible-lint as it runs as a separate job
   build-import:
-    name: build-import-collection
+    name: "Build & import collection"
     env:
       CHECK_REQUIRED_TAGS: "True"
       RUN_ANSIBLE_LINT: "False"
