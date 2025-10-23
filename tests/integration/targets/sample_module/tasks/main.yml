@@ -7,4 +7,4 @@
 - name: Assert the returned message
   ansible.builtin.assert:
     that:
-    - result.message == "Hello, ansible-creator"
+      - result.message == "Hello, ansible-creator"
