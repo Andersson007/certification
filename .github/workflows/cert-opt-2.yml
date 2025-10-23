@@ -1,0 +1,46 @@
+---
+# Ansible collection certification main workflow.
+# Contains tests run by Galaxy-importer on Automation Hub.
+name: "cert_opt2"
+
+concurrency:
+  group: cert_opt2-${{ github.head_ref || github.run_id }}
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  # Below is an example cron scheduler,
+  # tweak it as per your requirement
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  # Run galaxy_importer checks
+  build-import:
+    uses: ansible/ansible-content-actions/.github/workflows/build_import.yaml@main
+
+  # Run ansible-lint checks
+  ansible-lint:
+    uses: ansible/ansible-content-actions/.github/workflows/ansible_lint.yaml@main
+
+  # Run ansible-test sanity
+  sanity:
+    uses: ansible/ansible-content-actions/.github/workflows/sanity.yaml@main
+
+  all_green:
+    if: ${{ always() }}
+    needs:
+      - build-import
+      - ansible-lint
+      - sanity
+    runs-on: ubuntu-latest
+    steps:
+      - run: >-
+          python -c "assert 'failure' not in
+          set([
+          '${{ needs.build-import.result }}',
+          '${{ needs.ansible-lint.result }}'
+          '${{ needs.sanity.result }}',
+          ])"
