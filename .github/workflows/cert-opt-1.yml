@@ -1,4 +1,6 @@
 ---
+# Ansible collection certification main workflow.
+# Contains tests run by Galaxy-importer on Automation Hub.
 name: "cert_opt1"
 
 concurrency:
@@ -72,6 +74,7 @@ jobs:
   # Run sanity checks against the collection
   sanity:
     name: Sanity (Ⓐ${{ matrix.ansible }})
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         ansible:
@@ -92,7 +95,6 @@ jobs:
           - milestone
           # - devel
 
-    runs-on: ubuntu-latest
     steps:
       # Run sanity tests inside a Docker container.
       # The docker container has all the pinned dependencies that are
