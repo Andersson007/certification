@@ -16,6 +16,7 @@ on:
 
 jobs:
   # Build the collection and run galaxy-importer on it
+  # skipping ansible-lint as it runs as a separate job
   build-import:
     name: build-import-collection
     runs-on: ubuntu-latest
@@ -31,7 +32,7 @@ jobs:
       - name: Update galaxy-importer cfg
         shell: bash
         run: |
-          echo "[galaxy-importer]\nCHECK_REQUIRED_TAGS=True" > /tmp/galaxy-importer.cfg
+          echo "[galaxy-importer]\nCHECK_REQUIRED_TAGS=True\nRUN_ANSIBLE_LINT=False" > /tmp/galaxy-importer.cfg
           export GALAXY_IMPORTER_CONFIG=/tmp/galaxy-importer.cfg
 
       - name: Build the collection tarball and run galaxy importer on it
