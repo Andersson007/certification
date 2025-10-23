@@ -12,6 +12,7 @@ on:
   # Below is an example cron scheduler,
   # tweak it as per your requirement
   schedule:
+    - cron: '0 6 * * *'
 
 jobs:
   lint:
