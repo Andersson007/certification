@@ -24,7 +24,7 @@ Before uploading a tarball of your collection to Automation Hub:
 
   - [ ] Copy the [Ansible collection certification GitHub Actions workflow](https://github.com/ansible-collections/certification/blob/main/.github/workflows/cert-tests.yml) to the `.github/workflows` directory of your collection repository.
   - [ ] Check the `Actions` tab on GitHub UI to make sure the workflow is running.
-  - [ ] Fix all the failures if any. TBD ERRORS THAT CANNOT BE IGNORED LINK
+  - [ ] Fix all the failures if any.
 
     - [ ] If you collection ignores some errors by using `ignore-*.txt` files, make sure there are entries of [allowed types](https://ansible.readthedocs.io/projects/lint/rules/sanity/) only.
 
