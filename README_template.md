@@ -15,7 +15,7 @@ This section must list the required minimum versions of Ansible and Python, and 
 
 ## Installation
 
-> This section must not include details about installing Ansible or ansible-core as that is installed as part of the AAP installation and execution environments. This section should focus on installing the collection from automation hub and must not include references to installing from GitHub.
+> This section must not include details about installing Ansible or ansible-core as that is installed as part of the AAP installation and execution environments. This section should focus on installing the collection from Automation Hub and must not include references to installing from GitHub.
 
 Before using this collection, you need to install it with the Ansible Galaxy command-line tool:
 
@@ -58,11 +58,11 @@ See [using Ansible collections](https://docs.ansible.com/ansible/devel/user_guid
 
 > This section should include information about what is supported and how to get support for the collection. This can include supported versions of the collection, how to submit a support request, and any other information about how to get additional assistance. We recommend the following text for certified content only:
 
-As Red Hat Ansible Certified Content, this collection is entitled to support through the Ansible Automation Platform (AAP) using the **Create issue** button on the top right corner. If a support case cannot be opened with Red Hat and the collection has been obtained either from Galaxy or GitHub, there may community help available on the [Ansible Forum](https://forum.ansible.com/).
+As Red Hat Ansible Certified Content, this collection is entitled to support through the Ansible Automation Platform (AAP) using the **Create issue** button on the top right corner. If a support case cannot be opened with Red Hat and the collection has been obtained either from Galaxy or GitHub, there may be community help available on the [Ansible Forum](https://forum.ansible.com/).
 
 ## Release notes and roadmap
 
-> Collections must link to their release notes or changelog. Collections that have a public roadmap available should also link to that. All links must be full URLs, not GitHub relative links. Private repositories can include this information in their README file, or include the file in the collection tarball. Collections can optionally add a release note or changelog file to the docs/ directory as simplified markdown to display this information in automation hub. The [antsibull-changelog](https://ansible.readthedocs.io/projects/antsibull-changelog/) tool provides a convenient way to generate a changelog.
+> Collections must link to their release notes or changelog. Collections that have a public roadmap available should also link to that. All links must be full URLs, not GitHub relative links. Private repositories can include this information in their README file, or include the file in the collection tarball. Collections can optionally add a release note or changelog file to the docs/ directory as simplified Markdown to display this information in Automation Hub. The [antsibull-changelog](https://ansible.readthedocs.io/projects/antsibull-changelog/) tool provides a convenient way to generate a changelog.
 
 ## License Information
 
@@ -70,7 +70,7 @@ As Red Hat Ansible Certified Content, this collection is entitled to support thr
 
 ## Contributing (Optional)
 
-> If your interested in community involvement and contributions to your collection, you might be interested in adding the following sections from the [Community-recommended README template](https://github.com/ansible-collections/collection_template):
+> If you're interested in community involvement and contributions to your collection, you might be interested in adding the following sections from the [Community-recommended README template](https://github.com/ansible-collections/collection_template):
   - [Communication](https://github.com/ansible-collections/collection_template#communication)
   - [Code of Conduct](https://github.com/ansible-collections/collection_template#code-of-conduct)
   - [Contributing to this collection](https://github.com/ansible-collections/collection_template#contributing-to-this-collection)
