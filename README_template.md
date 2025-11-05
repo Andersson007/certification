@@ -48,11 +48,11 @@ See [using Ansible collections](https://docs.ansible.com/ansible/devel/user_guid
 
 ## Use cases
 
-> This section should outline in detail 3-5 common use cases for the collection. These should be informative examples of how the collection has been used, or how you’d like to see it be used. 
+> This section should outline in detail 3-5 common use cases for the collection. These should be informative examples of how the collection has been used, or how you'd like to see it be used. 
 
 ## Testing
 
-> This section should include information on how the collection was tested and how it performed. Include information on what environments it’s been tested against, and any known exceptions or workarounds necessary for its use.
+> This section should include information on how the collection was tested and how it performed. Include information on what environments it's been tested against, and any known exceptions or workarounds necessary for its use.
 
 ## Support
 
