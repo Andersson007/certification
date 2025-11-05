@@ -44,9 +44,9 @@ Before uploading a tarball of your collection to Automation Hub:
 - [ ] Make sure the collection passes Galaxy-importer checks on GitHub as described in the [Collection testing section](https://github.com/ansible-collections/certification/blob/main/README.md#collection-testing).
 - [ ] Ensure the collection follows the [Versioning and Release Strategy](https://access.redhat.com/articles/4993781) and specifically [Semantic Versioning](https://semver.org/) when determining which version to release. Practically, it means that given a version number `MAJOR.MINOR.PATCH`, increment the following:
 
-  - `MAJOR` version: when making incompatible API changes.
-  - `MINOR` version: when adding features or functionality in a backward-compatible manner (e.g., adding new module options).
-  - `PATCH` version: when adding backward-compatible bug fixes or security fixes (strict).
+  - `MAJOR` version (e.g., `2.y.z`): when making incompatible API changes.
+  - `MINOR` version (e.g., `x.3.z`: when adding features or functionality in a backward-compatible manner (e.g., adding new module options).
+  - `PATCH` version (e.g., `x.y.1`) : when adding backward-compatible bug fixes or security fixes (strict).
   - The collection version must be at least `1.0.0` to be accepted.
 
 - [ ] Ensure the collection tarball you upload contains a changelog with an entry for the version being uploaded.
