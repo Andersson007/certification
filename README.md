@@ -7,10 +7,10 @@ This repository aims to provide a clear set of instructions and content to help 
 
 ## Collection testing
 
-Errors in import logs on Automation Hub is the most common reason of collection rejection.
-Make sure the collection passes Galaxy-importer checks on GitHub.
+Errors in Automation Hub import logs is the most common reason for collection rejection.
+Make sure the collection passes Galaxy-importer checks before uploading.
 
-To make the checks run against every pull request automatically and on a scheduled basis:
+To make the checks run against every pull request in your GitHub repository automatically and on a scheduled basis:
 
 1. [ ] Copy the [Ansible collection certification GitHub Actions workflow](https://github.com/ansible-collections/certification/blob/main/.github/workflows/cert-tests.yml) to the `.github/workflows` directory of your collection repository.
   - [ ] Check the `Actions` tab on GitHub UI to make sure the workflow is running.
