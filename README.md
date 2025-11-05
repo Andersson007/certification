@@ -51,7 +51,6 @@ Before uploading a tarball of your collection to Automation Hub:
 
 - [ ] Ensure the collection tarball you upload contains a changelog with an entry for the version being uploaded.
 
-  - https://access.redhat.com/articles/4993781
   - We recommend using the [antsibull-changelog](https://ansible.readthedocs.io/projects/antsibull-changelog/) tool for changelog generation.
 
 ## Optional
