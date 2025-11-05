@@ -1,9 +1,16 @@
 # Collection certification onboarding
 
+> [!NOTE]
+> Are you interested in joining the Ansible content certification program?
+  1. Read the [Certification policy guide](https://connect.redhat.com/sites/default/files/2025-04/V28_Ansible_Certification_Policy_Guide_2025.pdf).
+  2. Not a Red Hat partner yet? Join the [Partner program](https://connect.redhat.com/en/partner-program).
+
 This repository aims to provide a clear set of instructions and content to help Red Hat partners:
 
 - onboard their collections as [certified content on Ansible Automation Hub](https://connect.redhat.com/sites/default/files/2025-04/V28_Ansible_Certification_Policy_Guide_2025.pdf)
 - reduce the probability of a collection version upload rejection
+
+The provided content can be used by anyone regardless of their relationship with Red Hat.
 
 ## Collection testing
 
