@@ -15,15 +15,15 @@ Make sure the collection passes Galaxy-importer checks before uploading.
 To make the checks run against every pull request in your GitHub repository automatically and on a scheduled basis:
 
 1. Copy the [Ansible collection certification GitHub Actions workflow](https://github.com/ansible-collections/certification/blob/main/.github/workflows/cert-tests.yml) to the `.github/workflows` directory of your collection repository.
-  1.1. Check the `Actions` tab on GitHub UI to make sure the workflow is running.
-  1.2. Fix any failures.
+  - Check the `Actions` tab on GitHub UI to make sure the workflow is running.
+  - Fix any failures.
 
     - If your collection ignores some errors by using `ignore-*.txt` files, make sure there are entries of [allowed types](https://ansible.readthedocs.io/projects/lint/rules/sanity/) only.
 
 2. Keep a list of `ansible-core` versions in the `Sanity` job of the workflow updated when new versions of `ansible-core` come out:
 
-  2.1. Subscribe to the [news-for-maintainers](https://forum.ansible.com/tag/news-for-maintainers) tag on the Ansible Forum by clicking the bell button in the upper-right corner to get notified about new `ansible-core` versions available for testing.
-  2.2. Check out the [ansible-core support matrix](https://docs.ansible.com/ansible/devel/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix) periodically to remove EOL versions of `ansible-core` from your workflow's test matrix that your collection does not support.
+  - Subscribe to the [news-for-maintainers](https://forum.ansible.com/tag/news-for-maintainers) tag on the Ansible Forum by clicking the bell button in the upper-right corner to get notified about new `ansible-core` versions available for testing.
+  - Check out the [ansible-core support matrix](https://docs.ansible.com/ansible/devel/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix) periodically to remove EOL versions of `ansible-core` from your workflow's test matrix that your collection does not support.
 
 ### Running checks locally
 
