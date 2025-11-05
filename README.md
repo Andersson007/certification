@@ -37,7 +37,7 @@ Before uploading a tarball of your collection to Automation Hub:
 
     - Additionally, for users who obtained the collection from Galaxy and have no access to Automation Hub, you can refer them for support to GitHub issues in your repository or to Ansible Forum.
 
-- [ ] Make sure the collection passes Galaxy-importer checks on GitHub as described in the [Collection testing](https://github.com/ansible-collections/certification/blob/main/README.md#collection-testing).
+- [ ] Make sure the collection passes Galaxy-importer checks on GitHub as described in the [Collection testing section](https://github.com/ansible-collections/certification/blob/main/README.md#collection-testing).
 - [ ] Ensure the collection follows the [Versioning and Release Strategy](https://access.redhat.com/articles/4993781) and specifically [Semantic Versioning](https://semver.org/) when determining which version to release. Practically, it means that given a version number `MAJOR.MINOR.PATCH`, increment the following:
 
   - `MAJOR` version: when making incompatible API changes.
