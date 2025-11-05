@@ -68,3 +68,5 @@ Before uploading a tarball of your collection to Automation Hub:
 
 There are a lot of good things we could recommend that partners do to improve the quality of their collections,
 but let's deliberately limit this repository's content to only what is **required**.
+
+For exceptionally good, yet not necessary items, use the [Optional section](https://github.com/ansible-collections/certification#optional).
