@@ -23,7 +23,7 @@ To make the checks run against every pull request in your GitHub repository auto
   - [ ] Subscribe to the [news-for-maintainers](https://forum.ansible.com/tag/news-for-maintainers) tag on the Ansible Forum by clicking the bell button in the upper-right corner to get notified about new `ansible-core` versions available for testing.
   - [ ] Check out the [ansible-core support matrix](https://docs.ansible.com/ansible/devel/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix) periodically to remove EOL versions of `ansible-core` from your workflow's test matrix that your collection does not support.
 
-3. If your repository is not hosted on GitHub, prease run the checks locally as described in the `STEP 6: Test and lint your Ansible Collection` section of the [Certification workflow guide](https://connect.redhat.com/sites/default/files/2025-06/Ansible-Certification-Workflow-Guide202506.pdf).
+3. If your repository is not hosted on GitHub, please run the checks locally as described in the `STEP 6: Test and lint your Ansible Collection` section of the [Certification workflow guide](https://connect.redhat.com/sites/default/files/2025-06/Ansible-Certification-Workflow-Guide202506.pdf).
 
 ## Check the following before uploading a collection version
 
