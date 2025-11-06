@@ -49,6 +49,15 @@ Before uploading a tarball of your collection to Automation Hub:
     - Additionally, for users who obtained the collection from Galaxy and have no access to Automation Hub, you can refer them for support to GitHub issues in your repository or to Ansible Forum.
 
 - [ ] Make sure the collection passes Galaxy-importer checks on GitHub as described in the [Collection testing section](https://github.com/ansible-collections/certification/blob/main/README.md#collection-testing).
+- [ ] If there are external Python dependencies in your collection it MUST contain a `requirements.txt` file. Make sure:
+
+  - [ ] No `ansible` or `ansible-core` are specified in the file.
+  - [ ] To avoid conflicts with other collections requirements for users when building execution environments, the entries in the file do NOT have version caps and the versions are not fixed. This means:
+
+    - The ONLY allowed entries are `>=x.x.x` or with no versions specified.
+    - Entries such as `<=x.x.x` or `==x.x.x` entries are NOT allowed. An exception to this rule applies when both the collection and its dependency are provided by the same vendor.
+
+- [ ] Make sure your collection does not depend on other collection which are not certified on Automation Hub: the `dependencies:` field of the `galaxy.yml` file does not list any non-certified collections.
 - [ ] Ensure the collection follows the [Versioning and Release Strategy](https://access.redhat.com/articles/4993781) and specifically [Semantic Versioning](https://semver.org/) when determining which version to release. Practically, it means that given a version number `MAJOR.MINOR.PATCH`, increment the following:
 
   - `MAJOR` version (e.g., `2.y.z`): when making incompatible API changes.
