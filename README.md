@@ -7,7 +7,7 @@
 
 This repository aims to provide a clear set of instructions and content to help Red Hat partners:
 
-- onboard their collections as [certified content on Ansible Automation Hub](https://connect.redhat.com/sites/default/files/2025-04/V28_Ansible_Certification_Policy_Guide_2025.pdf)
+- onboard their collections as certified content on Ansible Automation Hub
 - reduce the probability of a collection version upload rejection
 
 The provided content can be used by anyone regardless of their relationship with Red Hat.
@@ -74,7 +74,7 @@ Before uploading a tarball of your collection to Automation Hub:
 - If you want to cover your collection with other kinds of tests (for example, unit and/or integration) to ensure your code stability, you can use the following resources:
 
   - [Ansible Nox](https://ansible.readthedocs.io/projects/antsibull-nox/introduction/)
-  - [Ansible Test GitHub Actions](https://github.com/marketplace/actions/ansible-test)
+  - [Collection Template Workflows](https://github.com/ansible-collections/collection_template/tree/main/.github/workflows)
   - [Ansible Content Actions](https://github.com/ansible/ansible-content-actions/)
 
 - If you want to learn community best practices related to collection development and maintenance, see the [Ansible community package collection requirements](https://docs.ansible.com/ansible/devel/community/collection_contributors/collection_requirements.html).
