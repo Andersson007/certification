@@ -14,7 +14,7 @@ The provided content can be used by anyone regardless of their relationship with
 
 ## Collection testing
 
-Errors in Automation Hub import logs is the most common reason for collection rejection.
+Errors in Automation Hub import logs are the most common reason for collection rejection.
 Make sure the collection passes Galaxy-importer checks before uploading.
 
 ### Running checks in GitHub Actions
@@ -27,7 +27,7 @@ To make the checks run against every pull request in your GitHub repository auto
 
     - If your collection ignores some errors by using `ignore-*.txt` files, make sure there are entries of [allowed types](https://ansible.readthedocs.io/projects/lint/rules/sanity/) only.
 
-2\. Keep a list of `ansible-core` versions in the `Sanity` job of the workflow updated when new versions of `ansible-core` come out:
+2\. Keep a list of `ansible-core` versions in the `Sanity` job of the workflow updated when new versions of `ansible-core` are released:
 
   - Subscribe to the [news-for-maintainers](https://forum.ansible.com/tag/news-for-maintainers) tag on the Ansible Forum by clicking the bell button in the upper-right corner to get notified about new `ansible-core` versions available for testing.
   - Check out the [ansible-core support matrix](https://docs.ansible.com/ansible/devel/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix) periodically to remove EOL versions of `ansible-core` from your workflow's test matrix that your collection does not support.
@@ -49,6 +49,15 @@ Before uploading a tarball of your collection to Automation Hub:
     - Additionally, for users who obtained the collection from Galaxy and have no access to Automation Hub, you can refer them for support to GitHub issues in your repository or to Ansible Forum.
 
 - [ ] Make sure the collection passes Galaxy-importer checks on GitHub as described in the [Collection testing section](https://github.com/ansible-collections/certification/blob/main/README.md#collection-testing).
+- [ ] If there are external Python dependencies in your collection, it MUST contain a `requirements.txt` file. Make sure:
+
+  - [ ] No `ansible` or `ansible-core` are specified in the file.
+  - [ ] To avoid conflicts with other collections requirements for users when building execution environments, the entries in the file do NOT have version caps and the versions are not fixed. This means:
+
+    - The ONLY allowed entries are `>=x.x.x` or with no versions specified.
+    - Entries such as `<=x.x.x` or `==x.x.x` entries are NOT allowed. An exception to this rule applies when both the collection and its dependency are provided by the same vendor.
+
+- [ ] Make sure your collection does not depend on other collections which are not certified on Automation Hub: the `dependencies:` field of the `galaxy.yml` file does not list any non-certified collections.
 - [ ] Ensure the collection follows the [Versioning and Release Strategy](https://access.redhat.com/articles/4993781) and specifically [Semantic Versioning](https://semver.org/) when determining which version to release. Practically, it means that given a version number `MAJOR.MINOR.PATCH`, increment the following:
 
   - `MAJOR` version (e.g., `2.y.z`): when making incompatible API changes.
