@@ -1,87 +1,50 @@
-# Collection certification onboarding
+# Certifying Ansible collections
 
-> [!NOTE]
-> Are you interested in joining the Ansible content certification program?
-> 1. Read the [Certification policy guide](https://connect.redhat.com/sites/default/files/2025-04/V28_Ansible_Certification_Policy_Guide_2025.pdf).
-> 2. Not a Red Hat partner yet? Join the [Partner program](https://connect.redhat.com/en/partner-program).
+This repository helps Red Hat partners check their Ansible content against minimum requirements for certification on Ansible Automation Hub.
 
-This repository aims to provide a clear set of instructions and content to help Red Hat partners:
+## Certification checks
 
-- onboard their collections as certified content on Ansible Automation Hub
-- reduce the probability of a collection version upload rejection
+This repository provides GitHub workflows to perform sanity and lint tests as part of the [Red Hat certification workflow guide](https://connect.redhat.com/sites/default/files/2025-06/Ansible-Certification-Workflow-Guide202506.pdf).
+The purpose of these certification checks is to identify common errors in the Ansible Automation Hub import process.
+You should run these checks before uploading Ansible collections to Automation Hub.
 
-The provided content can be used by anyone regardless of their relationship with Red Hat.
+Certification checks are not a substitute for a comprehensive testing strategy.
+You should add unit and integration tests for robust test coverage that validates the functionality and behavior of your modules, plugins, and roles.
 
-## Collection testing
+We recommend these tools for comprehensive testing and validation:
 
-Errors in Automation Hub import logs are the most common reason for collection rejection.
-Make sure the collection passes Galaxy-importer checks before uploading.
+- [Ansible Nox](https://ansible.readthedocs.io/projects/antsibull-nox/introduction/)
+- [Collection Template Workflows](https://github.com/ansible-collections/collection_template/tree/main/.github/workflows)
+- [Ansible Content Actions](https://github.com/ansible/ansible-content-actions/)
 
-### Running checks in GitHub Actions
+You can also learn about good practices for developing and maintaining Ansible collections by applying the [Ansible community package collection requirements](https://docs.ansible.com/ansible/devel/community/collection_contributors/collection_requirements.html).
 
-To make the checks run against every pull request in your GitHub repository automatically and on a scheduled basis:
+## Preparing collections for certification
 
-1\. Copy the [Ansible collection certification GitHub Actions workflow](https://github.com/ansible-collections/certification/blob/main/.github/workflows/cert-tests.yml) to the `.github/workflows` directory of your collection repository.
-  - Check the `Actions` tab on GitHub UI to make sure the workflow is running.
-  - Fix any failures.
+Before uploading your collection to Ansible Automation Hub, you should verify that it meets certification requirements.
+Follow instructions in the [Red Hat certification workflow guide](https://connect.redhat.com/sites/default/files/2025-06/Ansible-Certification-Workflow-Guide202506.pdf) to ensure that your collection meets all requirements.
 
-    - If your collection ignores some errors by using `ignore-*.txt` files, make sure there are entries of [allowed types](https://ansible.readthedocs.io/projects/lint/rules/sanity/) only.
+Some common reasons for certification rejections include:
 
-2\. Keep a list of `ansible-core` versions in the `Sanity` job of the workflow updated when new versions of `ansible-core` are released:
+- Missing or unclear sections in the project README.
+Refer to the [Ansible Certified Collections README Template](https://access.redhat.com/articles/7068606) for all information that your README must contain.
+- Missing changelog entries for each collection version.
+We recommend using the [antsibull-changelog](https://ansible.readthedocs.io/projects/antsibull-changelog/) tool for changelog generation.
 
-  - Subscribe to the [news-for-maintainers](https://forum.ansible.com/tag/news-for-maintainers) tag on the Ansible Forum by clicking the bell button in the upper-right corner to get notified about new `ansible-core` versions available for testing.
-  - Check out the [ansible-core support matrix](https://docs.ansible.com/ansible/devel/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix) periodically to remove EOL versions of `ansible-core` from your workflow's test matrix that your collection does not support.
+Additionally, certified collections must follow guidelines for dependency management such as:
 
-### Running checks locally
+- Python dependencies must be declared in a `requirements.txt` file with either a lower bound constraint, `>=x.x.x`, or not fixed to a version.
+- Python dependencies must not include `ansible` or `ansible-core`.
+- Ansible collection dependencies can exist only if the dependency is also a certified collection.
 
-If your repository is not hosted on GitHub, please run the checks locally as described in the `STEP 6: Test and lint your Ansible Collection` section of the [Certification workflow guide](https://connect.redhat.com/sites/default/files/2025-06/Ansible-Certification-Workflow-Guide202506.pdf).
+## Adding certification checks to your repository
 
-## Check the following before uploading a collection version
+To run the certification checks against pull requests and on schedule:
 
-Before uploading a tarball of your collection to Automation Hub:
+1. Copy the [Ansible collection certification GitHub Actions workflow](https://github.com/ansible-collections/certification/blob/main/.github/workflows/cert-tests.yml) to the `.github/workflows` directory of your collection repository.
+1. Navigate to the `Actions` tab of the collection repository and then verify the workflow is enabled. 
 
-- [ ] Consult the [Ansible Certification Workflow Guide](https://connect.redhat.com/sites/default/files/2025-06/Ansible-Certification-Workflow-Guide202506.pdf) to ensure the collection meets the requirements listed in STEPS 5-7.
-- [ ] Ensure that `README.md` in your collection contains all required sections such as Description, Installation, Support, and Changelog/Release notes.
+### Updating the test matrix
 
-  - [ ] To avoid rejection of your collection due to insufficient or absent sections, use the [Ansible Certified Collections README Template](https://github.com/ansible-collections/certification/blob/main/README_template.md).
-  - [ ] Ensure that the `Support` section refers users to **Automation Hub** for support similar to [README_template#support](https://github.com/ansible-collections/certification/blob/main/README_template.md#support).
-
-    - Additionally, for users who obtained the collection from Galaxy and have no access to Automation Hub, you can refer them for support to GitHub issues in your repository or to Ansible Forum.
-
-- [ ] Make sure the collection passes Galaxy-importer checks on GitHub as described in the [Collection testing section](https://github.com/ansible-collections/certification/blob/main/README.md#collection-testing).
-- [ ] If there are external Python dependencies in your collection, it MUST contain a `requirements.txt` file. Make sure:
-
-  - [ ] No `ansible` or `ansible-core` are specified in the file.
-  - [ ] To avoid conflicts with other collections requirements for users when building execution environments, the entries in the file do NOT have version caps and the versions are not fixed. This means:
-
-    - The ONLY allowed entries are `>=x.x.x` or with no versions specified.
-    - Entries such as `<=x.x.x` or `==x.x.x` entries are NOT allowed. An exception to this rule applies when both the collection and its dependency are provided by the same vendor.
-
-- [ ] Make sure your collection does not depend on other collections which are not certified on Automation Hub: the `dependencies:` field of the `galaxy.yml` file does not list any non-certified collections.
-- [ ] Ensure the collection follows the [Versioning and Release Strategy](https://access.redhat.com/articles/4993781) and specifically [Semantic Versioning](https://semver.org/) when determining which version to release. Practically, it means that given a version number `MAJOR.MINOR.PATCH`, increment the following:
-
-  - `MAJOR` version (e.g., `2.y.z`): when making incompatible API changes.
-  - `MINOR` version (e.g., `x.3.z`: when adding features or functionality in a backward-compatible manner (e.g., adding new module options).
-  - `PATCH` version (e.g., `x.y.1`) : when adding backward-compatible bug fixes or security fixes (strict).
-  - The collection version must be at least `1.0.0` to be accepted.
-
-- [ ] Ensure the collection tarball you upload contains a changelog with an entry for the version being uploaded.
-
-  - We recommend using the [antsibull-changelog](https://ansible.readthedocs.io/projects/antsibull-changelog/) tool for changelog generation.
-
-## Optional
-
-- If you want to cover your collection with other kinds of tests (for example, unit and/or integration) to ensure your code stability, you can use the following resources:
-
-  - [Ansible Nox](https://ansible.readthedocs.io/projects/antsibull-nox/introduction/)
-  - [Collection Template Workflows](https://github.com/ansible-collections/collection_template/tree/main/.github/workflows)
-  - [Ansible Content Actions](https://github.com/ansible/ansible-content-actions/)
-
-- If you want to learn community best practices related to collection development and maintenance, see the [Ansible community package collection requirements](https://docs.ansible.com/ansible/devel/community/collection_contributors/collection_requirements.html).
-
-## Contributing to this repository
-
-There are a lot of good things we could recommend that partners do to improve the quality of their collections,
-but let's deliberately limit this repository's content to only what is **required**.
-
-For exceptionally good, yet not necessary items, use the [Optional section](https://github.com/ansible-collections/certification#optional).
+You must update the list of `ansible-core` versions in the `Sanity` job of the `.github/workflows/certification.yml` workflow when new versions of `ansible-core` are released.
+Refer to default `ansible-core` versions in the `Ansible Automation Platform Installation Requirements` section of the [Red Hat Ansible Automation Platform Life Cycle](https://access.redhat.com/support/policy/updates/ansible-automation-platform#installation) document.
