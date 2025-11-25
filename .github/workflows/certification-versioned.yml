@@ -46,7 +46,7 @@ jobs:
       - name: Install ansible-core
         run: pip install ansible-core==${{ env.CORE_VER }}
 
-      - name: Ensure galaxy-importer
+      - name: Install galaxy-importer
         shell: bash
         run: pip install galaxy-importer==${{ env.GALAXY_IMPORTER_VER }}
 
@@ -63,8 +63,7 @@ jobs:
 
       - name: Build the collection tarball and run galaxy importer on it
         shell: bash
-        run: |
-          python -m galaxy_importer.main --git-clone-path . --output-path /tmp
+        run: python -m galaxy_importer.main --git-clone-path . --output-path /tmp
 
   # Run ansible-lint with profile "production"
   # and skipping sanity checks as they run as a separate job
