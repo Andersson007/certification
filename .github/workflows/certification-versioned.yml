@@ -30,7 +30,7 @@ jobs:
       CHECK_REQUIRED_TAGS: "True"
       RUN_ANSIBLE_LINT: "False"
       CORE_VER: "2.16.0"
-      GALAXY_IMPORTER_VER: "0.4.3"
+      GALAXY_IMPORTER_VER: "0.4.22"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -47,7 +47,6 @@ jobs:
         shell: bash
         run: >
           python -m pip install
-          'PyYAML>=6.0'
           ansible-core==${{ env.CORE_VER }}
           galaxy-importer==${{ env.GALAXY_IMPORTER_VER }}
 
