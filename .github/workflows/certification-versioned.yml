@@ -47,6 +47,7 @@ jobs:
         shell: bash
         run: >
           python -m pip install
+          'PyYAML>=6.0'
           ansible-core==${{ env.CORE_VER }}
           galaxy-importer==${{ env.GALAXY_IMPORTER_VER }}
 
