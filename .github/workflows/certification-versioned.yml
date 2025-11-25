@@ -30,7 +30,7 @@ jobs:
       CHECK_REQUIRED_TAGS: "True"
       RUN_ANSIBLE_LINT: "False"
       CORE_VER: "2.16.0"
-      GALAXY_IMPORTER_VER: "0.4.22"
+      GALAXY_IMPORTER_VER: "0.4.31"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
