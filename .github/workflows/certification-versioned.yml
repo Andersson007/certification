@@ -95,23 +95,7 @@ jobs:
     strategy:
       matrix:
         ansible:
-          # It's important that Sanity is tested against all stable-X.Y branches
-          # Testing against `devel` may fail as new tests are added.
-          # An alternative to `devel` is the `milestone` branch with
-          # gets synchronized with `devel` every few weeks and therefore
-          # tends to be a more stable target. Be aware that it is not updated
-          # around creation of a new stable branch, this might cause a problem
-          # that two different versions of ansible-test use the same sanity test
-          # ignore.txt file.
-          # Add new versions announced in
-          # https://github.com/ansible-collections/news-for-maintainers
-          # in a timely manner, consider dropping testing against EOL
-          # versions and versions you don't support.
-          - stable-2.17
-          - stable-2.18
-          - stable-2.20
-          - milestone
-          # - devel
+          - stable-2.16
 
     steps:
       # Run sanity tests inside a Docker container.
