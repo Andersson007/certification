@@ -1,4 +1,4 @@
-name: Run versioned certification checks
+name: Run collection certification checks
 
 on:
   pull_request:
