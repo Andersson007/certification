@@ -33,7 +33,7 @@ Additionally, certified collections must follow guidelines for dependency manage
 
 To run the certification checks against pull requests and on schedule:
 
-1. Copy the [Ansible collection certification GitHub Actions workflow](https://github.com/ansible-collections/certification/blob/main/.github/workflows/cert-tests.yml) to the `.github/workflows` directory of your collection repository.
+1. Copy the [Ansible collection certification GitHub Actions workflow](https://github.com/ansible-collections/certification/blob/main/.github/workflows/certification.yml) to the `.github/workflows` directory of your collection repository.
 1. Navigate to the `Actions` tab of the collection repository and then verify the workflow is enabled. 
 
 ### Updating the test matrix
