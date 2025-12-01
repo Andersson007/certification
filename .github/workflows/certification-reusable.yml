@@ -8,10 +8,6 @@ name: "Run versioned collection certification checks"
 permissions:
   contents: read
 
-concurrency:
-  group: cert-ver-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
-
 on:
   workflow_call:
 
