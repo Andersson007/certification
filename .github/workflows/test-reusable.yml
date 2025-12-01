@@ -1,0 +1,13 @@
+# This workflow runs the reusable workflow
+# in this repository for testing purposes
+name: Test certification-reusable workflow
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  call:
+    uses: ./.github/workflows/certification-reusable.yml
