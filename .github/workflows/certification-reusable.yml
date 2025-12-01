@@ -86,7 +86,7 @@ jobs:
 
   # Run sanity checks against the collection
   sanity:
-    name: Sanity (Ⓐ${{ matrix.ansible }})
+    name: Sanity (Ⓐ${{ matrix.ansible }}, Python ${{ matrix.python }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
