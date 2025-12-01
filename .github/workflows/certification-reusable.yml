@@ -8,10 +8,6 @@ name: "Run versioned collection certification checks"
 permissions:
   contents: read
 
-concurrency:
-  group: cert-ver-${{ github.head_ref || github.run_id }}
-  cancel-in-progress: true
-
 on:
   workflow_call:
 
@@ -90,12 +86,20 @@ jobs:
 
   # Run sanity checks against the collection
   sanity:
-    name: Sanity (Ⓐ${{ matrix.ansible }})
+    name: Sanity (Ⓐ${{ matrix.ansible }}, Python ${{ matrix.python }})
     runs-on: ubuntu-latest
     strategy:
       matrix:
         ansible:
           - stable-2.16
+        python:
+          - '3.6'
+          - '3.7'
+          - '3.8'
+          - '3.9'
+          - '3.10'
+          - '3.11'
+          - '3.12'
 
     steps:
       # Run sanity tests inside a Docker container.
@@ -108,6 +112,7 @@ jobs:
         with:
           ansible-core-version: ${{ matrix.ansible }}
           testing-type: sanity
+          target-python-version: ${{ matrix.python }}
           # Uncomment to configure a codecov token.
           # Check here whether a token is required: https://docs.codecov.com/docs/codecov-tokens
           # Collections in the github.com/ansible-collections/ namespace usually do not need a token.
