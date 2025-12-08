@@ -6,17 +6,16 @@ name: "certification"
 version: 0.1.0
 readme: README.md
 authors:
-  - your name <example@domain.com>
+  - Ansible community and partner engineering team
 
-description: your collection description
+description: Provides re-usable workflows for collection certification purposes
 license_file: LICENSE
 
-# TO-DO: update the tags based on your content type
-tags: ["linux", "tools"]
+tags: ["certification", "workflows"]
 
-# TO-DO: maintain this list to reflect the collection's dependencies
 dependencies: {}
 
+# This collection is not published anywhere
 repository: http://example.com/repository
 documentation: http://docs.example.com
 homepage: http://example.com
