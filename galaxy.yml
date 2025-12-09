@@ -17,7 +17,7 @@ dependencies: {}
 
 # This collection is not published anywhere
 repository: https://github.com/ansible-collections/partner-certification-checker
-documentation: http://docs.example.com
+documentation: https://github.com/ansible-collections/partner-certification-checker/blob/main/README.md
 homepage: http://example.com
 issues: http://example.com/issue/tracker
 
