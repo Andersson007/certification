@@ -16,7 +16,7 @@ tags: ["infrastructure", "tools", "certification", "workflows"]
 dependencies: {}
 
 # This collection is not published anywhere
-repository: http://example.com/repository
+repository: https://github.com/ansible-collections/partner-certification-checker
 documentation: http://docs.example.com
 homepage: http://example.com
 issues: http://example.com/issue/tracker
