@@ -18,8 +18,8 @@ dependencies: {}
 # This collection is not published anywhere
 repository: https://github.com/ansible-collections/partner-certification-checker
 documentation: https://github.com/ansible-collections/partner-certification-checker/blob/main/README.md
-homepage: http://example.com
-issues: http://example.com/issue/tracker
+homepage: https://github.com/ansible-collections/partner-certification-checker/blob/main/README.md
+issues: https://github.com/ansible-collections/partner-certification-checker/issues
 
 # A list of file glob-like patterns used to filter any files or directories that should not be included in the build
 # artifact. A pattern is matched from the relative path of the file or directory of the collection directory. This
