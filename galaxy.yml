@@ -6,21 +6,20 @@ name: "certification"
 version: 0.1.0
 readme: README.md
 authors:
-  - your name <example@domain.com>
+  - Ansible community and partner engineering team
 
-description: your collection description
+description: Provides re-usable workflows for collection certification purposes
 license_file: LICENSE
 
-# TO-DO: update the tags based on your content type
-tags: ["linux", "tools"]
+tags: ["tools", "certification", "workflows"]
 
-# TO-DO: maintain this list to reflect the collection's dependencies
 dependencies: {}
 
-repository: http://example.com/repository
-documentation: http://docs.example.com
-homepage: http://example.com
-issues: http://example.com/issue/tracker
+# This collection is not published anywhere
+repository: https://github.com/ansible-collections/partner-certification-checker
+documentation: https://github.com/ansible-collections/partner-certification-checker/blob/main/README.md
+homepage: https://github.com/ansible-collections/partner-certification-checker/blob/main/README.md
+issues: https://github.com/ansible-collections/partner-certification-checker/issues
 
 # A list of file glob-like patterns used to filter any files or directories that should not be included in the build
 # artifact. A pattern is matched from the relative path of the file or directory of the collection directory. This

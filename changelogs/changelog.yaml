@@ -1,0 +1,14 @@
+ancestor: null
+releases:
+  0.1.0:
+    changes:
+      minor_changes:
+      - 'Added certification-reusable.yml: called by certification.yml'
+      - 'Added certification-static.yml: experimental, uses latest versions of tools'
+      - 'Added certification.yml: supposed to be copied to partners'' repos'
+      - 'Added test-reusable.yml: for testing certification-reusable.yml'
+      release_summary: The first release of the certification-reusable workflow.
+    fragments:
+    - 0.1.0.yml
+    - test.yml
+    release_date: '2025-12-08'
