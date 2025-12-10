@@ -11,6 +11,12 @@ concurrency:
   group: cert-ver-${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
 
+
+# If Ansible Lint checks fail on files unrelated to
+# the collection's core functionality, add the .ansible-lint file
+# to your collection's root directory and list
+# all files and directories you want Ansible Lint to ignore. Example:
+# https://github.com/ansible-collections/partner-certification-checker/blob/main/.ansible-lint
 jobs:
   call:
     uses: ansible-collections/partner-certification-checker/.github/workflows/certification-reusable.yml@main
