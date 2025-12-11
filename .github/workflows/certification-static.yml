@@ -65,7 +65,7 @@ jobs:
   # Run ansible-lint with profile "production"
   # and skipping sanity checks as they run as a separate job.
   # If Ansible Lint checks fail on files unrelated to
-  # the collection's core functionality, add the .ansible-lint file
+  # the collection's core functionality, add an .ansible-lint file
   # to your collection's root directory and list
   # all files and directories you want Ansible Lint to ignore. Example:
   # https://github.com/ansible-collections/partner-certification-checker/blob/main/.ansible-lint
