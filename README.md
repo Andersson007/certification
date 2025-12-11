@@ -35,7 +35,7 @@ To run the certification checks against pull requests and on schedule:
 
 1. Copy the [Ansible collection certification GitHub Actions workflow](https://github.com/ansible-collections/certification/blob/main/.github/workflows/certification.yml) to the `.github/workflows` directory of your collection repository.
 1. Navigate to the `Actions` tab of the collection repository and then verify the workflow is enabled. 
-1. If Ansible Lint checks fail on files unrelated to the collection's core functionality, add the [.ansible-lint](.ansible-lint) file to your collection's root directory and list all files and directories you want Ansible Lint to ignore.
+1. If Ansible Lint checks fail on files unrelated to the collection's core functionality, add an [.ansible-lint](.ansible-lint) file to your collection's root directory and list all files and directories you want Ansible Lint to ignore.
 
 ### Updating the test matrix
 
