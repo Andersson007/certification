@@ -6,7 +6,7 @@ To track changes in this repository made between versions and to generate a chan
 
 ### When updating tools versions in the reusable workflow
 
-When updating tools versions in the reusable workflow, make sure the changelog and notifications to partners to update the workflow version in their repos reflect porting guides for related breaking changes.
+When updating versions of tools in the reusable workflow, ensure that the changelog, and any notifications to partners, include porting guides for related breaking changes.
 
 For example, when elevating the `ansible-core` version, say, from `2.16` to `2.17`, reflect it in a corresponding changelog fragment, noting that because workflow version N runs the `ansible-test sanity` command from ansible-core 2.17, if a partner has `tests/sanity/ignore-2.16.txt` file, they need to copy it to `tests/sanity/ignore-2.17.txt` to prevent errors.
 
